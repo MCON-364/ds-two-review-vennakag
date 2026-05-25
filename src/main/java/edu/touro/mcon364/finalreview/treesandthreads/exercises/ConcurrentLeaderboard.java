@@ -48,8 +48,7 @@ public class ConcurrentLeaderboard {
      * @param entry the score entry to add
      */
     public void submitScore(ScoreEntry entry) {
-        leaderboard.add(entry);
-        totalSubmissions.incrementAndGet();
+       //TODO
     }
 
     /**
