@@ -55,8 +55,7 @@ public class ConcurrentEventLog {
      * @param message   event description
      */
     public void logEvent(long timestamp, String message) {
-        // TODO: long key = timestamp * 1_000_000L + sequence.getAndIncrement();
-        // TODO: log.put(key, message);
+        // TODO
     }
 
     /**
@@ -71,9 +70,7 @@ public class ConcurrentEventLog {
      */
     public void runConcurrentSources(List<String> sources, int eventsEach)
             throws InterruptedException {
-        // TODO: ExecutorService pool = Executors.newFixedThreadPool(sources.size());
-        // TODO: for each source, pool.submit(() -> { for loop calling logEvent });
-        // TODO: pool.shutdown(); pool.awaitTermination(30, TimeUnit.SECONDS);
+        // TODO
     }
 
     /**

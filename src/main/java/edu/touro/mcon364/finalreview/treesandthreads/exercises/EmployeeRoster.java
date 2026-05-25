@@ -9,7 +9,7 @@ import java.util.stream.*;
  * In-class Exercise 2 — Employee Roster (TreeMap + TreeSet + Streams)
  *
  * Scenario: a company has employees spread across several departments.
- * You need to organise them so that departments are listed alphabetically
+ * You need to organize them so that departments are listed alphabetically
  * and employees within each department are also sorted alphabetically by name.
  *
  * This exercise practises:
@@ -53,8 +53,7 @@ public class EmployeeRoster {
      * @return sorted map: department name -> sorted set of employees
      */
     public TreeMap<String, TreeSet<Employee>> buildRoster() {
-        // TODO: stream employees, collect using groupingBy with TreeMap supplier
-        //       and TreeSet downstream collector
+        // TODO
         return new TreeMap<>();
     }
 
@@ -75,7 +74,7 @@ public class EmployeeRoster {
      * @return globally sorted employee list
      */
     public List<Employee> getAllEmployeesSorted() {
-        // TODO: flatMap over the roster values, sort, collect
+        // TODO
         return List.of();
     }
 
@@ -88,7 +87,7 @@ public class EmployeeRoster {
      * @return navigable sub-map
      */
     public NavigableMap<String, TreeSet<Employee>> getDepartmentsInRange(String from, String to) {
-        // TODO: return buildRoster().subMap(from, true, to, true)
+        // TODO
         return new TreeMap<>();
     }
 }
