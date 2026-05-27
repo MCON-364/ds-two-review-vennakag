@@ -1,6 +1,8 @@
 package edu.touro.mcon364.finalreview.orderflowhandoff.exercises;
 
-import edu.touro.mcon364.finalreview.model.Action;import java.util.Optional;
+import edu.touro.mcon364.finalreview.model.Action;
+
+import java.util.*;
 
 /**
  * In-class Exercise 1 — Action History
@@ -29,27 +31,59 @@ import edu.touro.mcon364.finalreview.model.Action;import java.util.Optional;
  */
 public class ActionHistory {
 
+    private List<Action> recordActions = new ArrayList<>();
+    private Deque<Action> redoActionStack = new  ArrayDeque<>();
+    private Deque<Action> undoActionStack = new ArrayDeque<>();
+    public int actionListCount = 0;
+    public int undoCount = 0;
+    public int redoCount = 0;
+
+
     public void perform(Action action) {
         // TODO: implement based on the requirements above
+        undoActionStack.push(action);
+        actionListCount++;
+        undoCount++;
     }
 
     public Optional<Action> undo() {
         // TODO: implement based on the requirements above
-        return Optional.empty();
+        if (recordActions.isEmpty()) {
+            return Optional.empty();
+        }
+        Action action = recordActions.remove(actionListCount - 1);
+        actionListCount --;
+        undoActionStack.push(action);
+        undoCount--;
+        redoCount++;
+        return Optional.ofNullable(action);
     }
 
     public Optional<Action> redo() {
         // TODO: implement based on the requirements above
-        return Optional.empty();
+        if (undoActionStack.isEmpty()) {
+            return Optional.empty();
+        }
+        Action action = undoActionStack.pop();
+        undoCount++;
+        redoCount--;
+        recordActions.add(action);
+        actionListCount++;
+        return Optional.ofNullable(action);
     }
 
     public int getUndoCount() {
-        // TODO: implement based on the requirements above
+        if (undoCount != 0){
+            return  undoCount;
+        }
         return 0;
     }
 
     public int getRedoCount() {
         // TODO: implement based on the requirements above
+        if (redoCount != 0){
+            return  redoCount;
+        }
         return 0;
     }
 }
